@@ -4,12 +4,14 @@
   "description": "SQL exercise tracker based on the MongoDB project from freecodecamp.org",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "sqlExerciseTracker"
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
   },
   "author": "Lakso",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
 }
