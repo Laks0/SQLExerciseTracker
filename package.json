@@ -1,0 +1,15 @@
+{
+  "name": "sqlexercisetracker",
+  "version": "1.0.0",
+  "description": "SQL exercise tracker based on the MongoDB project from freecodecamp.org",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "sqlExerciseTracker"
+  },
+  "author": "Lakso",
+  "license": "ISC"
+}
