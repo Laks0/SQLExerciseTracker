@@ -2,10 +2,31 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Exersice Tracker</title>
+	<title>Exercise Tracker</title>
 	<link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-	
+	<div id="main-container">
+		<div id="user-list-container" class="container">
+			<table>
+				<thead>
+					<td>ID</td>
+					<td>NAME</td>
+					<td>ADD EXERCISE</td>
+					<td>REMOVE</td>
+				</thead>
+				<tbody id="user-list-body"></tbody>
+			</table>
+		</div>
+
+		<div id="new-user-container" class="container">
+			<h2>Add a new user</h2>
+			<input placeholder="New user's name" type="text" value="" id="new-user-input"/>
+			<button id="add-user-btn">Add user</button>
+			<p id="new-user-result"></p>
+		</div>
+	</div>
+
+	<script src="client.js"></script>
 </body>
 </html>

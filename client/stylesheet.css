@@ -1,0 +1,30 @@
+body {
+	background: lightgrey;
+}
+
+.container {
+	background: orange;
+	width: 20em;
+	text-align: center;
+	padding: 5px;
+	border-radius: 5px;
+	border: solid black 3px;
+	box-shadow: 1px 1px 3px 1px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table {
+	margin: auto;
+}
+
+table, thead, td {
+	border-collapse: collapse;
+	border: 2px solid black;
+	background: lightblue;
+}
+
+td, thead {
+	padding: 5px;
+}

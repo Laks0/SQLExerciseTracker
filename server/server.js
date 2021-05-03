@@ -1,4 +1,6 @@
 const express = require("express");
+const dbHandler = require(process.cwd() + "/server/dbHandler");
+const db = new dbHandler();
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -10,6 +12,29 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 app.get("/", (req, res) => res.sendFile(process.cwd() + "/client/index.html"));
+
+// POST new user
+app.post("/users", (req, res) => {
+	const promise = db.createUser(req.body.name);
+
+	promise.then(id => res.json({id: id, name: req.body.name}));
+});
+
+// GET all users
+app.get("/users", (req, res) => {
+	const promise = db.getAllUsers();
+
+	promise.then(users => res.json(users));
+});
+
+// DELETE user by id
+app.delete("/users/:id", (req, res) => {
+	const {id} = req.params;
+
+	const promise = db.removeUserById(id);
+
+	promise.then(rows => res.json({success: rows === 1}));
+});
 
 const port = process.env.port || 8000;
 app.listen(port, () => {
