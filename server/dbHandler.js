@@ -71,6 +71,23 @@ class DbHandler {
 			console.error(err);
 		}
 	}
+
+	async createExercise(userId, date) {
+		try {
+			const promise = await new Promise ((resolve, reject) => {
+				const query = "INSERT INTO exercises (userId, date) VALUES (?,?);";
+
+				connection.query(query, [userId, new Date(date)], (err, result) => {
+					if (err) reject(new Error(err.message));
+					resolve(result.insertId);
+				});
+			});
+
+			return promise;
+		} catch (err) {
+			console.error(err);
+		}
+	}
 }
 
 module.exports = DbHandler;

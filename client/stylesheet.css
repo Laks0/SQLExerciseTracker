@@ -4,7 +4,7 @@ body {
 
 .container {
 	background: orange;
-	width: 20em;
+	width: 30em;
 	text-align: center;
 	padding: 5px;
 	border-radius: 5px;
@@ -17,6 +17,7 @@ body {
 
 table {
 	margin: auto;
+	width: 100%;
 }
 
 table, thead, td {

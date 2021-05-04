@@ -46,10 +46,12 @@ function addUserRow(user) {
 	tbody.innerHTML += html;
 }
 
+const newExerciseContainer = document.getElementById("new-exercise-container");
+const newExerciseBtn       = document.getElementById("new-exercise-btn");
+
 const userTable = document.getElementById("user-list-table");
 userTable.addEventListener("click", (event) => {
 	if (event.target.className === "delete-btn") {
-		console.log(event.target)
 		fetch(server + `/users/${event.target.dataset.id}`, {method: "DELETE"})
 			.then(res => res.json())
 			.then(data => {
@@ -57,6 +59,22 @@ userTable.addEventListener("click", (event) => {
 					updateUserList();
 				}
 			});
+	} else if (event.target.className === "add-exercise-btn") {
+		newExerciseContainer.hidden = false;
+		newExerciseBtn.dataset.id = event.target.dataset.id;
 	}
 });
 
+const newExerciseDate = document.getElementById("new-exercise-date-input");
+
+newExerciseDate.addEventListener("input", () => newExerciseBtn.disabled = false);
+newExerciseBtn.onclick = () => {
+	fetch(server + "/exercises", {
+		method: "POST",
+		headers: {"Content-type": "application/json"},
+		body: JSON.stringify({dateString: newExerciseDate.value, userId: newExerciseBtn.dataset.id})
+	}).then(res => res.json())
+		.then(data => {
+			console.log(data);
+		});
+};

@@ -36,6 +36,15 @@ app.delete("/users/:id", (req, res) => {
 	promise.then(rows => res.json({success: rows === 1}));
 });
 
+// POST exercise
+app.post("/exercises", (req, res) => {
+	const {userId, dateString} = req.body;
+	
+	const promise = db.createExercise(userId, dateString);
+
+	promise.then(id => res.json({id: id}));
+});
+
 const port = process.env.port || 8000;
 app.listen(port, () => {
 	console.log(`listening on port ${port}`);
