@@ -1,5 +1,7 @@
 body {
 	background: lightgrey;
+
+	font-family: Ubuntu, serif;
 }
 
 .container {
@@ -28,4 +30,16 @@ table, thead, td {
 
 td, thead {
 	padding: 5px;
+}
+
+button {
+	border: solid black 2px;
+	border-radius: 5px;
+	padding: 5px;
+	box-shadow: 1px 1px;
+}
+
+button:active {
+	box-shadow: none;
+	background: lightgrey;
 }

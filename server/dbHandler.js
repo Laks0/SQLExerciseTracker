@@ -88,6 +88,23 @@ class DbHandler {
 			console.error(err);
 		}
 	}
+
+	async getUsersExercise(userId) {
+		try {
+			const promise = await new Promise((resolve, reject) => {
+				const query = "SELECT * FROM exercises WHERE userId = ?";
+
+				connection.query(query, [userId], (err, results) => {
+					if (err) reject(new Error(err.message));
+					resolve(results);
+				});
+			});
+
+			return promise;
+		} catch (err) {
+			console.error(err);
+		}
+	}
 }
 
 module.exports = DbHandler;

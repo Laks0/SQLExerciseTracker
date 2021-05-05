@@ -45,6 +45,17 @@ app.post("/exercises", (req, res) => {
 	promise.then(id => res.json({id: id}));
 });
 
+// GET all exercises from user
+app.get("/exercises/:userId", (req, res) => {
+	const {userId} = req.params;
+
+	const promise = db.getUsersExercise(userId);
+
+	promise.then(data => {
+		res.json(data);
+	});
+});
+
 const port = process.env.port || 8000;
 app.listen(port, () => {
 	console.log(`listening on port ${port}`);

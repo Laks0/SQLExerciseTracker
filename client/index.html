@@ -4,19 +4,26 @@
 	<meta charset="UTF-8">
 	<title>Exercise Tracker</title>
 	<link rel="stylesheet" href="stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
 </head>
 <body>
 	<div id="main-container">
 		<div id="user-list-container" class="container">
+			<h2>User list</h2>
+
 			<table id="user-list-table">
 				<thead>
 					<td>ID</td>
 					<td>NAME</td>
 					<td>ADD EXERCISE</td>
+					<td>VIEW EXERCISES</td>
 					<td>REMOVE</td>
 				</thead>
 				<tbody id="user-list-body"></tbody>
 			</table>
+			<br>
+			
+			<button id="toggle-user-btn">ADD NEW USER</button>
 		</div>
 
 		<div id="new-exercise-container" class="container" hidden>
@@ -25,11 +32,22 @@
 			<button id="new-exercise-btn" disabled>Add Exercise</button>
 		</div>
 
-		<div id="new-user-container" class="container">
+		<div id="new-user-container" class="container" hidden>
 			<h2>Add a new user</h2>
 			<input placeholder="New user's name" type="text" value="" id="new-user-input"/>
 			<button id="add-user-btn">Add user</button>
 			<p id="new-user-result"></p>
+		</div>
+
+		<div id="exercises-container" class="container" hidden>
+			<h2></h2>
+			<table id="view-exercises-table">
+				<thead>
+					<td>ID</td>
+					<td>DATE</td>
+				</thead>
+				<tbody id="exercises-list-body"></tbody>
+			</table>
 		</div>
 	</div>
 
